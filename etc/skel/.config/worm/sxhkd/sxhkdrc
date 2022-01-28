@@ -414,8 +414,8 @@ ctrl + alt + o
 #    qtile-cmd -o layout -f normalize
 
 #kill
-#super + q
-#    qtile-cmd -o window -f kill
+super + q
+    wormc close-active-client
 
 # Foucs WINDOW (Navigate)
 #super + {Left,Down,Up,Right}
@@ -443,8 +443,8 @@ ctrl + alt + o
 #################################################################
 
 #kill
-#super + shift + q
-#    qtile-cmd -o window -f kill
+super + shift + q
+      wormc close-active-client
 
 #Quit Qtile
 #super + shift + x
