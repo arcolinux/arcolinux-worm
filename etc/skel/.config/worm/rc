@@ -7,6 +7,8 @@ function run {
   fi
 }
 
+dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+
 exec nitrogen --restore &
 
 exec ~/.config/polybar/launch.sh &
@@ -17,11 +19,6 @@ wormc border-width 2
 
 #start the conky to learn the shortcuts
 (conky -c $HOME/.config/worm/system-overview) &
-
-# These add support for pywal
-# wormc border-active-pixel $((16$(sed -n '4p' .cache/wal/colors)))
-# wormc border-inactive-pixel $((16$(sed -n '5p' .cache/wal/colors)))
-# wormc background-pixel $((16$(sed -n '6p' .cache/wal/colors)))
 
 wormc layout tiling
 wormc struts 40 10 10 10
