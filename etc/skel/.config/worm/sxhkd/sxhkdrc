@@ -93,8 +93,8 @@ super + v
     pavucontrol
 
 #Pragha
-super + m
-    pragha
+#super + m
+#    pragha
 
 #urxvt
 super + Return
@@ -406,8 +406,8 @@ ctrl + alt + o
 #################################################################
 
 #Toggle fullscreen of window
-#super + f
-#    qtile-cmd -o window -f toggle_fullscreen
+super + f
+    wormc maximize-active-client
 
 # normalize layout (undo size changes)
 #super + n
@@ -465,13 +465,12 @@ super + shift + q
 #    qtile-cmd -o layout -f {shuffle_up,shuffle_down,swap_left,swap_right}
 
 # TOGGLE FLOATING LAYOUT
-#super + shift + space
-#    qtile-cmd -o window -f toggle_floating
+super + shift + space
+   wormc float-active
 
-#Reload Qtile
-#super + shift + r
-#    qtile-cmd -o cmd -f restart
-
+#Reload Worm
+super + shift + r
+    worm
 
 #################################################################
 # SUPER + ALT KEYS
@@ -483,18 +482,14 @@ super + shift + q
 #    qtile-cmd -o layout -f {flip_left,flip_down,flip_up,flip_right}
 
 
-##################################
-## The RESIZE KEYS ARE RESERVED ##
-##  ~/.config/qtile/config.py   ##
-##      Lines 191 - 235         ##
-##################################
-## RESIZE UP, DOWN, LEFT, RIGHT ##
-#super + control + l
-#super + control + Right
-#super + control + h
-#super + control + Left
-#super + control + k
-#super + control + Up
-#super + control + j
-#super + control + Down
-##################################
+# Switch active tag
+super + {1,2,3,4,5,6,7,8,9}
+    wormc switch-tag {1,2,3,4,5,6,7,8,9}
+
+# Switch tag
+super + shift + {1,2,3,4,5,6,7,8,9}
+    wormc move-active-tag {1,2,3,4,5,6,7,8,9}
+
+# Set master windows
+super + m
+    wormc master-active

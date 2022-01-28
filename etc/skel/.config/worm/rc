@@ -21,6 +21,8 @@ wormc border-width 2
 (conky -c $HOME/.config/worm/system-overview) &
 
 wormc layout tiling
+#wormc layout floating
+
 wormc struts 40 10 10 10
 wormc gaps 3
 wormc frame-height 0
