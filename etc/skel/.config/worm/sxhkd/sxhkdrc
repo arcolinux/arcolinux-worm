@@ -106,8 +106,8 @@ super + Escape
 
 #Keyboard dependent
 #urxvt
-#super + KP_Enter
-#	urxvt
+super + KP_Enter
+	urxvt
 
 #################################################################
 # SUPER + SHIFT KEYS
@@ -399,47 +399,102 @@ super + y
 
 #Picom Toggle
 ctrl + alt + o
-    ~/.config/herbstluftwm/scripts/picom-toggle.sh
+    ~/.config/worm/scripts/picom-toggle.sh
 
 #################################################################
 # SUPER + KEYS
 #################################################################
 
-# if you want to assign applications to specific tags or workspaces
-# add a command behind the application to focus on that workspace if required
-# index 0 corresponds to tag or workspace 1
-# index 1 corresponds to tag or workspace	2
-# example
+#Toggle fullscreen of window
+#super + f
+#    qtile-cmd -o window -f toggle_fullscreen
 
-# Vivaldi
-#super + F1
-#	vivaldi-stable & herbstclient use_index 0
+# normalize layout (undo size changes)
+#super + n
+#    qtile-cmd -o layout -f normalize
+
+#kill
+#super + q
+#    qtile-cmd -o window -f kill
+
+# Foucs WINDOW (Navigate)
+#super + {Left,Down,Up,Right}
+#    qtile-cmd -o layout -f {left,down,up,right}
+
+# Foucs WINDOW (Navigate)
+#super + {h,j,k,l}
+#    qtile-cmd -o layout -f {left,down,up,right}
 
 #################################################################
-# HLWM Terminate Keybindings
+# SUPER KEYS
 #################################################################
 
-#close window/application
-super + q
-    herbstclient close
+#Focus selected desktop
+#super + Tab
+#    qtile-cmd -o screen -f next_group
 
-#close window/application
-super + shift + q
-    herbstclient close
+# set the window state
+#super + space
+#    qtile-cmd -o cmd -f next_layout
 
-#realod herbstluftwm
-super + shift +r
-    herbstclient reload
 
-#Xkill
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#kill
+#super + shift + q
+#    qtile-cmd -o window -f kill
+
+#Quit Qtile
 #super + shift + x
-#    herbstclient quit
+#    qtile-cmd -o cmd -f shutdown
 
+# FLIP LAYOUT FOR MONADTALL/MONADWIDE
+#super + shift + f
+#    qtile-cmd -o layout -f flip
 
+# MOVE WINDOWS UP OR DOWN BSP LAYOUT
+
+#super + shift + {h,j,k,l}
+#    qtile-cmd -o layout -f {shuffle_left,shuffle_down,shuffle_up,shuffle_right}
+
+# MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
+
+#super + shift + {Up,Down,Left,Right}
+#    qtile-cmd -o layout -f {shuffle_up,shuffle_down,swap_left,swap_right}
+
+# TOGGLE FLOATING LAYOUT
+#super + shift + space
+#    qtile-cmd -o window -f toggle_floating
+
+#Reload Qtile
+#super + shift + r
+#    qtile-cmd -o cmd -f restart
 
 
 #################################################################
+# SUPER + ALT KEYS
 #################################################################
-##################   AZERTY/QWERTY/ ... KEYBOARD#################
-#################################################################
-#################################################################
+
+# FLIP LAYOUT FOR BSP
+
+#super + alt + {h,j,k,l}
+#    qtile-cmd -o layout -f {flip_left,flip_down,flip_up,flip_right}
+
+
+##################################
+## The RESIZE KEYS ARE RESERVED ##
+##  ~/.config/qtile/config.py   ##
+##      Lines 191 - 235         ##
+##################################
+## RESIZE UP, DOWN, LEFT, RIGHT ##
+#super + control + l
+#super + control + Right
+#super + control + h
+#super + control + Left
+#super + control + k
+#super + control + Up
+#super + control + j
+#super + control + Down
+##################################

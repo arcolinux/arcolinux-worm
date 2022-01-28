@@ -3,5 +3,5 @@ if pgrep -x "picom" > /dev/null
 then
 	killall picom
 else
-	picom -b --config ~/.config/herbstluftwm/picom.conf
+	picom -b --config ~/.config/worm/picom.conf
 fi

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+function run {
+  if ! pgrep $1 ;
+  then
+    $@&
+  fi
+}
+
+exec nitrogen --restore &
+
+exec ~/.config/polybar/launch.sh &
+
+exec sxhkd -c ~/.config/worm/sxhkd/sxhkdrc &
+
+wormc border-width 2
+
+#start the conky to learn the shortcuts
+(conky -c $HOME/.config/qtile/scripts/system-overview) &
+
+# These add support for pywal
+# wormc border-active-pixel $((16$(sed -n '4p' .cache/wal/colors)))
+# wormc border-inactive-pixel $((16$(sed -n '5p' .cache/wal/colors)))
+# wormc background-pixel $((16$(sed -n '6p' .cache/wal/colors)))
+
+wormc layout tiling
+wormc struts 40 10 10 10
+wormc gaps 3
+wormc frame-height 0
+
+run variety &
+run nm-applet &
+run pamac-tray &
+run xfce4-power-manager &
+numlockx on &
+blueberry-tray &
+picom --config $HOME/.config/worm/picom.conf &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
