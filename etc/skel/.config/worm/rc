@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#use arandr to save the correct resolution - see next line
+#sh ~/.screenlayout/monitor.sh &
 
 function run {
   if ! pgrep $1 ;
@@ -15,17 +17,29 @@ exec ~/.config/polybar/launch.sh &
 
 exec sxhkd -c ~/.config/worm/sxhkd/sxhkdrc &
 
+wormc frame-active-pixel $((16#FF383C4A))
+wormc frame-inactive-pixel $((16#FF383C4A)) # todo: diff color for active window (the bug here was fixed, this works now)
+wormc frame-left T
+wormc frame-height 0
+wormc text-font 'Jetbrains Mono:size=10'
+wormc frame-right 'I;M;C'
+wormc button-offset 5 7
+wormc close-path ~/.config/worm/buttons/close.png
+wormc minimize-path ~/.config/worm/buttons/minimize.png
+wormc maximize-path ~/.config/worm/buttons/maximize.png
+wormc button-size 16
 wormc border-width 2
+wormc border-active-pixel $((16#FF5294e2))
+wormc border-inactive-pixel $((16#FF7c818c))
 
-#start the conky to learn the shortcuts
-(conky -c $HOME/.config/worm/system-overview) &
+wormc struts 40 10 10 10
+wormc gaps 3
 
 wormc layout tiling
 #wormc layout floating
 
-wormc struts 40 10 10 10
-wormc gaps 3
-wormc frame-height 0
+#start the conky to learn the shortcuts
+(conky -c $HOME/.config/worm/system-overview) &
 
 run variety &
 run nm-applet &
