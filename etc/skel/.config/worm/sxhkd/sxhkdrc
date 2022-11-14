@@ -442,29 +442,11 @@ super + q
 # SUPER + SHIFT KEYS
 #################################################################
 
-#kill
+#Kill
 super + shift + q
       wormc close-active-client
 
-#Quit Qtile
-#super + shift + x
-#    qtile-cmd -o cmd -f shutdown
-
-# FLIP LAYOUT FOR MONADTALL/MONADWIDE
-#super + shift + f
-#    qtile-cmd -o layout -f flip
-
-# MOVE WINDOWS UP OR DOWN BSP LAYOUT
-
-#super + shift + {h,j,k,l}
-#    qtile-cmd -o layout -f {shuffle_left,shuffle_down,shuffle_up,shuffle_right}
-
-# MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
-
-#super + shift + {Up,Down,Left,Right}
-#    qtile-cmd -o layout -f {shuffle_up,shuffle_down,swap_left,swap_right}
-
-# TOGGLE FLOATING LAYOUT
+#Toggle floating layout
 super + shift + space
    wormc float-active
 
@@ -472,14 +454,16 @@ super + shift + space
 super + shift + r
     worm
 
+super + shift + t
+  wormc layout tiling
+
+super + shift + f
+  wormc layout floating
+
 #################################################################
 # SUPER + ALT KEYS
 #################################################################
 
-# FLIP LAYOUT FOR BSP
-
-#super + alt + {h,j,k,l}
-#    qtile-cmd -o layout -f {flip_left,flip_down,flip_up,flip_right}
 
 
 # Switch active tag
